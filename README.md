@@ -42,7 +42,7 @@ period, the Melbit is **transmitted back to the tablet** and either
 *evolves* (mission succeeded) or *turns into a virus* (mission failed)
 that goes on to attack other Melbits in the app.
 
-There is **no display, no button** (a recessed reset under the case is
+There is **no display, no buttons** (a recessed reset under the case is
 the only exception). Every interaction is sensed: tilt, shake, presence
 on the Magic Link, light, temperature, motion gesture.
 
@@ -111,8 +111,11 @@ separate from the ambient light sensor on top. When the child sets the
 POD down on top of the LightPort on the tablet, the bottom photodiode
 reads the screen, the firmware demodulates the optical signal, and the
 tablet's nonce is transferred over this optical side-channel. BLE
-bonding then happens automatically against the specific device that
-just received the nonce.
+advertises that nonce in the vendor data portion of the advertising packet
+so the tablet knows which device to connect to in case there's more than one
+in range. BLE pairs in just works mode, and the protocol is encrypted using a
+key derived from the nonce. This way no explicit toy-tablet bonding is required,
+which is ideal for activities such as transferring Melbits between friends.
 
 The result is "**put the toy on the screen and it pairs**" — zero
 configuration, intrinsically directional (only the device that sees
@@ -160,11 +163,12 @@ without an FPU.
 The PCM channel uses GSM because it offered the best balance between
 audio quality, bitrate, and decoder Flash + RAM footprint on this MCU.
 **Audio files don't ship inside the firmware image** — they're bundled
-with the companion app, run through a host-side pipeline that
-**equalizes each clip to compensate for the speaker's resonant
-frequencies** and encodes it into GSM, and then transferred to the POD
-over BLE on demand. The device caches them in Flash for later playback,
-managed by the on-device file server.
+with the companion app.
+These files are preprocessed offline before building the app package,
+run through a host-side pipeline that **equalizes each clip to compensate
+for the speaker's resonant frequencies**, and encodes them into GSM.
+The app transfers audio files to the POD over BLE on demand. The POD caches
+them in Flash for later playback.
 
 The synth side is authored in **[Renoise](https://www.renoise.com)**,
 the tracker. Each instrument is a `.xrni` and each song a `.xrns`. A
@@ -174,12 +178,11 @@ Renoise files into C source tables that get linked into the firmware
 and played back by the on-device synth.
 
 - Synth core: [`Main/Project/src/Audio/synth.c`](Main/Project/src/Audio/synth.c) — voice mixing, envelopes, pitch glide, bitcrush, channel types (SQR, TRI, NOISE, PWM, PCM, CMD)
-- Sine table: [`Main/Project/src/Audio/sin.c`](Main/Project/src/Audio/sin.c)
 - Asset converter: [`Tools/ModConverter/xrns2tt.py`](Tools/ModConverter/xrns2tt.py)
 - Output stage: [`Main/Project/src/HAL/PWMAudio.c`](Main/Project/src/HAL/PWMAudio.c) — PWM-DAC audio out
 - Instrument designs: [`Main/Feedbacks/`](Main/Feedbacks/) — the actual `.xrni` files used in the shipped product
 
-Resulting mixed audio is streamed over DMA to one of the hardware PWM controllers, and we do cheap PWM DAC with an external LPF, + a class-D amplifier that is powered on on demand.
+Resulting mixed audio is streamed over DMA to one of the hardware PWM controllers, and we do cheap PWM DAC with an external LPF, + a class-D amplifier that is powered on demand.
 
 ### 💡 LED and haptic choreography — also authored in Renoise
 
@@ -496,5 +499,5 @@ for full terms and the list of third-party components.
 
 ## Author
 
-**Miguel Angel Exposito** — Tech Lead, embedded systems, BLE.
+**Miguel Angel Exposito** — Tech Lead, Senior Software Engineer | C++ · Real-Time Systems · Cross-Platform · Embedded Software · 3D · Linux.
 Find me on [LinkedIn](https://www.linkedin.com/in/miguel-angel-exposito) · [GitHub](https://www.github.com/mikedottech).
