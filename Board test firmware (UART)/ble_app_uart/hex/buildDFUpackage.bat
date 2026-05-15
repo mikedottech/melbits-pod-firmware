@@ -1,0 +1,1 @@
+..\..\..\..\Tools\nrfutil.exe pkg generate --hw-version 52 --application-version 1 --application ble_app_uart_pca10040e_s112.hex --sd-req 0xB8 --key-file ..\..\..\..\Firmware\DFU\keys\private.key app_dfu_package.zip

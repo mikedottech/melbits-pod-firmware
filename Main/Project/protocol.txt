@@ -1,0 +1,88 @@
+    POD_PG_OPCODE_NOP = 0,
+
+!!! TODO !!!
+> Return CMD in progress if new opcode is sent before getting RSP
+!!!!!!!!!!!!
+
+
+// FILE XFER ----------------------------------------
+    [X][MAIN]>> POD_PG_OPCODE_STOREARCHIVE(offset, len)
+        [MAIN]<< RSCODE_OK | 
+                 RSCODE_EXTENDED + (FSRESULT_NOTEMPTY | FSRESULT_NOT_ENOUGH_SPACE | FSRESULT_OP_IN_PROGRESS)
+        [FILE]>>(data)
+        (wait for flow control)
+        [EVT]<< EVCODE_FILESRV_FLOW_CTRL |
+(push data)     EVCODE_FILESRV_EXTENDED + (FSRESULT_OP_IN_PROGRESS | FSRESULT_BAD_SIZE | FSRESULT_INTERNAL_ERROR) |
+(flash cb)      EVCODE_FILESRV_EXTENDED + (FSRESULT_CANT_MOUNT | FSRESULT_INTERNAL_ERROR) |
+                EVCODE_FILESRV_OP_COMPLETE
+
+    [X][MAIN]>> POD_PG_OPCODE_ERASEPAGES()
+        [MAIN]<< RSCODE_OK
+        [EVT]<< EVCODE_FILESRV_OP_COMPLETE |
+                EVCODE_FILESRV_EXTENDED + FSRESULT_INTERNAL_ERROR
+
+    [X][MAIN]>> POD_PG_OPCODE_ABORTXFER()
+        [MAIN]<< RSCODE_OK
+        [EVT]<<(wait for:
+            EVCODE_FILESRV_OP_COMPLETE |
+            EVCODE_FILESRV_EXTENDED + (FSRESULT_CANT_MOUNT | FSRESULT_INTERNAL_ERROR)
+        )
+    
+    
+    [MAIN]>> POD_PG_OPCODE_GETFILE(id, size) <FILE and EVT data like POD_PG_OPCODE_STOREARCHIVE>
+        [MAIN]<< RSCODE_OK + (file size) |
+                 RSCODE_EXTENDED + (FSRESULT_BAD_ID | FSRESULT_OP_IN_PROGRESS)
+
+    [MAIN]>> POD_PG_OPCODE_PUTFILE(id, size) <FILE and EVT data like POD_PG_OPCODE_STOREARCHIVE>         // RAM files only
+        [MAIN]<< RSCODE_OK |
+                 RSCODE_EXTENDED + (FSRESULT_BAD_ID | FSRESULT_ACCESS_DENIED | FSRESULT_BAD_SIZE | FSRESULT_OP_IN_PROGRESS)
+    
+    //---- NOT IMPLEMENTED
+    [MAIN]>> POD_PG_OPCODE_DELFILE(id)          // Flash files only
+    //---------------------
+
+    [X][MAIN]>> POD_PG_OPCODE_GETFILEINFO(id)
+        [MAIN]<< RSCODE_OK + size | 
+                 RSCODE_INVALID_PARAM
+
+// UI -----------------------------------------------
+    [X][MAIN]>> POD_PG_OPCODE_PLAYCLIP(id, extra [1 if file ID, 0 if system], prio)
+        [MAIN]<< RSCODE_OK | RSCODE_INVALID_PARAM
+    
+    [X][MAIN]>> POD_PG_OPCODE_ABORTCLIP()
+        [MAIN]<< RSCODE_OK
+
+// VIBRATION ----------------------------------------
+    [X][MAIN]>> POD_PG_OPCODE_VIBRATION(level, time_ms)
+        [MAIN]<< RSCODE_OK
+    
+// ACTIVITY -----------------------------------------
+    [X][MAIN]>> POD_PG_OPCODE_START_ACTIVITY(id)
+        {MAIN]<< RSCODE_OK | 
+                 RSCODE_EXTENDED + (activity specific error)
+
+    [X][MAIN]>> POD_PG_OPCODE_STOP_ACTIVITY()
+        [MAIN]<< RSCODE_OK
+
+    [MAIN]>> POD_PG_OPCODE_GET_ACTIVITY_STATE()
+        [MAIN]<< RSCODE_OK + activity type + (activity specific state)
+
+// STREAM -------------------------------------------
+    [MAIN]>> POD_PG_OPCODE_SETSTREAMITEMSMASK(mask)
+        [MAIN]<< RSCODE_OK
+        [STREAM]<< MASK + DATA        
+
+// EVENTS -------------------------------------------
+//---- NOT IMPLEMENTED
+    [MAIN]>> POD_PG_OPCODE_SETEVENTITEMSMASK(mask)
+        [MAIN]<< RSCODE_OK
+        [EVT]<< EVCODE_ASYNCEVENT + MASK
+//---------------------
+
+// BOX ----------------------------------------------
+    [X][MAIN]>> POD_PG_OPCODE_ENTERBOXMODE()
+        (await disconnection)
+
+// DFU ----------------------------------------------
+    [X][MAIN]>>POD_PG_OPCODE_ENTERDFUMODE()
+        (await disconnection)

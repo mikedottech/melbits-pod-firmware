@@ -1,0 +1,93 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints">
+  <BreakpointListItem trigger="" line="126" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="../../main.c" useHWbreakpoint="false"/>
+  <Exceptions set="MemManage;UsageFault_Coprocessor;UsageFault_CheckingError;UsageFault_StateError;BusFault;ExceptionEntryReturnFault;HardFault"/>
+ </Breakpoints>
+ <ExecutionProfileWindow/>
+ <FrameBufferWindow>
+  <FrameBufferWindow bufferHeight="-1" addressSpace="" addressText="" bufferWidth="-1"/>
+ </FrameBufferWindow>
+ <Memory1>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="secure_bootloader_ble_s112_pca10040e" radix="16" sizeText="" addressText=""/>
+ </Memory1>
+ <Memory2>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="secure_bootloader_ble_s112_pca10040e" radix="16" sizeText="" addressText=""/>
+ </Memory2>
+ <Memory3>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="secure_bootloader_ble_s112_pca10040e" radix="16" sizeText="" addressText=""/>
+ </Memory3>
+ <Memory4>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="secure_bootloader_ble_s112_pca10040e" radix="16" sizeText="" addressText=""/>
+ </Memory4>
+ <Project>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;Application"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;Board Definition"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nano-pb"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;None"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_BLE"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_Bootloader"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_Crypto"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_Crypto backend uECC"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_DFU"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_Drivers"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_Libraries"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_micro-ecc"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_Oberon_Crypto"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_SoftDevice"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;nRF_SVC"/>
+  <ProjectSessionItem path="secure_bootloader_ble_s112_pca10040e;secure_bootloader_ble_s112_pca10040e;Segger Startup Files"/>
+ </Project>
+ <Register1>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="secure_bootloader_ble_s112_pca10040e" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register1>
+ <Register2>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="secure_bootloader_ble_s112_pca10040e" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register2>
+ <Register3>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="secure_bootloader_ble_s112_pca10040e" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register3>
+ <Register4>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="secure_bootloader_ble_s112_pca10040e" decimalNodes="" octalNodes="" unsignedNodes=""/>
+ </Register4>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never">
+   <Watchpoint expression="device_name" name="device_name" radix="16" linenumber="0" filename="../ses"/>
+   <Watchpoint expression="ms" name="ms" radix="16" linenumber="0" filename="../ses"/>
+  </Watches>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="222" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../main.c" selected="0" top="208" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="26" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../board.c" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="451" useTextEdit="1" openedFrom="D:/Work/Melbot/melbits_pod/trunk/Pod/Final (ACCTRON)/Firmware/Secure Bootloader/main.c" useBinaryEdit="0" left="0" path="../../nrf_bootloader_lib/nrf_bootloader.c" selected="0" top="424" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="67" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../nrf_bootloader_lib/nrf_bootloader_dfu_timers.c" selected="0" top="48" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="49" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../nrf_bootloader_lib/nrf_bootloader_info.c" selected="0" top="37" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="83" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../nrf_bootloader_lib/nrf_bootloader_info.h" selected="0" top="73" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="545" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../nrf_bootloader_lib/dfu/nrf_dfu_req_handler.c" selected="0" top="515" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../NRF5SDK/components/libraries/util/app_error_weak.c" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="775" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../NRF5SDK/modules/nrfx/hal/nrf_gpio.h" selected="0" top="753" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="85" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../nrf_bootloader_lib/dfu/nrf_dfu.c" selected="0" top="66" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="238" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../nrf_bootloader_lib/nrf_bootloader_app_start_final.c" selected="0" top="224" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="88" y="239" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../nrf_bootloader_lib/ble_dfu/nrf_dfu_ble.c" selected="1" top="207" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="76" useTextEdit="1" openedFrom="D:/Work/Melbot/melbits_pod/trunk/Pod/Final (ACCTRON)/Firmware/Secure Bootloader/nrf_bootloader_lib/ble_dfu/nrf_dfu_ble.c" useBinaryEdit="0" left="0" path="../../../Main/Project/src/mbt_config.h" selected="0" top="57" codecName="Default"/>
+ </Files>
+ <ARMCrossStudioWindow activeProject="secure_bootloader_ble_s112_pca10040e" fileDialogDefaultFilter="*.asm;*.s;*.inc" autoConnectTarget="J-Link" buildConfiguration="Release_Pod_h0001" sessionSettings="" debugSearchFileMap="../../micro-ecc/asm_arm.inc&#xa;&#xa;../../micro-ecc/curve-specific.inc&#xa;&#xa;../../micro-ecc/uECC.c&#xa;" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3199"/>
+</session>

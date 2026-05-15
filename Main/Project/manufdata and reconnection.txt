@@ -1,0 +1,114 @@
+ADVERTISING PACKET MANUFACTURER DATA
+====================================
+
+Flags
+ - 0: MLINKLESS MODE
+
+ HOW MLINKLESS WORKS
+ ===================
+ - Press RESET twice -> The device blinks twice to confirm.
+ - MLINKLESS bit is set to 1 in advertised Manufacturer data
+ - App: When scanning for devices, if a connectable MLINKLESS device is found, an event will be notified in the Global Callback with the CandidateDevice
+        - The app can assign a CandidateDevice to one port manually.
+UI flow:
+    Option A:
+        - The app connects automatically to any pod in this state it may find
+        - The app connects to the NEAREST pod in this state automatically
+    Option B:
+        - The app has a special section in settings
+          - Register Pod to use without MagicLink
+          - Don't display the LightPort
+
+API changes
+-----------
+Port
+ - AssignCandidateDeviceManually()
+PodManager
+ - ScanForSpecialDevices() // DFU or MLL
+ Global Callback
+   - MLLDeviceFound (CandidateDevice)
+   - DFUDeviceFound (CandidateDevice)
+
+TODO: SLOW advertising always
+
+ CONNECTION LOST
+ ===============
+ - Activity in progress?
+    - Enable RECONNECT mode:
+        > SLOW advertising mode is enabled while the device is AWARE
+        > RECONNECT mode will be disabled when:
+            - A new MLINK AT is received
+            - A new BLE connection is made
+
+
+MLINK ENHANCEMENT
+=================
+- When the device is connected it still advertises its AT, but the advertisement packet has the non connectable flag
+- When a host needs to generate a unique AT, it will catch the non-connectable devices used ATs during warmup
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Automagic reconnection
+======================
+
+Always
+------
+[Dev]
+BOOT -> Adv slow -> timeout -> off
+Motion -> Adv slow -> timeout -> off << Reconnect or linked >>
+MLINK -> Adv fast -> timeout -> off << Connect to any device >>
+
+Handshake ->
+    App -> HS CMD
+    Dev -> Generate nonce
+    App -> Store nonce
+
+[App]
+AttachNew -> Match ML? / RSSI? -> Connect to any device
+
+
+
+
+/*
+If connection LOST
+    Trigger slow advertising
+    while /*Melbit inside*/ activity in progress and not advertising
+        AWARE and motion event -> trigger slow advertising with reconnect flag set to 1
+
+If connection CLOSED
+    disable automagic reconnection
+
+
+ML-LESS mode
+============
+if enabled
+    AWARE and motion event -> trigger slow advertising with MLL flag set to 1
+
+    App linked to device serial will connect
+*/
+
+Advertising clients
+===================
+PRIO
+0 -> MLINK (fast, mlless?, no reconnect)
+1 -> RECONNECT (slow, mlless?, reconnect)
+2 -> MLLESS (slow, mlless, no reconnect)
+
+App -> ScanForSpecialDevices() // StopScanForSpecialDevices()  -- Either DFU or MLLESS?
+ -> MLL device found <Name, ID, SerialShort>
+ -> DFU device found <DFUDevice>
+
+App -> PodManager.AddLinkedPod(Device <Name, ID, SerialShort>)
+App -> PodManager.MLINKEnabled = true/false // Forbids MLINK
+App -> PodManager.AttachNew() => Connects to matching mlink device or to advertising reconnecting linked device
+App -> PodManager.AttachDevice(Port, device) -> Connects an advertising device to the port manually if the port is idle
+
+
+
+
+
+APP BEHAVIOR
+============
+

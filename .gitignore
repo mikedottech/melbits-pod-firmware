@@ -1,0 +1,36 @@
+# ── Build artifacts ─────────────────────────────────────────────
+Output/
+*.elf
+*.map
+*.o
+*.lst
+*.bak
+
+# ── OS / editor junk ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Python ──────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Vendor trees (removed from publication, referenced by build) ─
+# If you restore these per SETUP.md to rebuild locally, keep them
+# out of the published history.
+NRF5SDK/
+Main/Project/src/nRF/Device/
+
+# ── Generated proprietary content (do not republish) ────────────
+# ModConverter-generated song mods and embedded audio dumps —
+# derived from proprietary .xrns / audio sources, treated the
+# same as those sources for publication purposes.
+Main/Project/src/_BuiltinAssets/
+Main/Project/src/BuiltinAssets/Mods/*/
+Main/Project/src/Temp/
+Tools/ModConverter/.songconverterstate

@@ -1,0 +1,1 @@
+..\..\..\Tools\make\win64\make.exe -j wavs

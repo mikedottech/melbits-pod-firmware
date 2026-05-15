@@ -1,0 +1,104 @@
+Melbot Studios Portfolio Source License
+=======================================
+
+Copyright (c) 2017-2020 Melbot Studios, S.L. All rights reserved.
+
+This source code was originally authored by Miguel Angel Exposito between
+2017 and 2020 while employed by Melbot Studios, S.L. All rights in the
+work product are held by Melbot Studios, S.L. It is published publicly
+with the express written authorization of Melbot Studios, S.L. for the
+sole purposes of:
+
+  (a) personal portfolio demonstration by the original author, and
+  (b) educational and technical review by third parties.
+
+Permission is granted to any person obtaining a copy of this source
+code to view, read, study, and reference it for the purposes described
+above.
+
+The following are NOT permitted without prior written consent from
+Melbot Studios, S.L.:
+
+  - Use of this source code, in whole or in part, in any commercial
+    product or service.
+  - Redistribution of this source code, in whole or in part, modified
+    or unmodified, through any medium.
+  - Creation of derivative works based on this source code.
+  - Use of the names "Melbot", "Melbot Studios", "Melbits", or "Melbits
+    Pod" to endorse or promote products derived from inspection of
+    this source code.
+
+Third-Party Components
+----------------------
+
+This repository may reference or include third-party components that
+are licensed under their own terms. Such components retain their
+original licenses and are NOT covered by this license. Notable
+third-party components include, without limitation:
+
+  - Nordic Semiconductor nRF5 SDK and CMSIS device files
+    (Nordic 5-Clause License). Vendor files are not redistributed in this
+    publication — see `Main/Project/src/nRF/README.md` for restore steps.
+
+  - SEGGER startup and runtime files such as `thumb_crt0.s`
+    (SEGGER BSD-style license; header preserved in-file).
+
+  - The GSM audio decoder used in the original product has been omitted
+    from this publication due to license incompatibility. See
+    `Main/Project/src/Audio/GSM_REMOVED.md`.
+
+  - LZSS encoder/decoder by Haruhiko Okumura (public domain). Both the
+    embedded decoder at `Main/Project/src/Compression/lzssdec.c` and the
+    host encoder/decoder at `Tools/LZSS/` derive from this reference
+    implementation; the public-domain notice is preserved in-file.
+
+  - Portions of code in `Main/Project/src/fpmath.h` (the fix16 / fix32
+    primitives), `Main/Project/src/utils.c` (the approximated
+    2D-distance routines), and `Main/Project/src/Pod/Misc/fxpt_atan2.h`
+    (the fix16 helper macros that wrap the atan2 implementation) are
+    adapted from SGDK (Sega Genesis Development Kit) by Stéphane
+    Dallongeville (https://github.com/Stephane-D/SGDK), licensed under
+    the MIT License. The full MIT notice is reproduced at the top of
+    `fpmath.h`; SGDK-derived sections in `utils.c` and
+    `fxpt_atan2.h` are annotated in-file. These portions are
+    redistributed under those same MIT terms.
+
+  - `Main/Project/src/Pod/Misc/fix_fft.c` (and its `.h`), together with
+    an inline 8-bit variant included in `Main/Project/src/Pod/TestMode.c`,
+    are the canonical **public-domain** fixed-point FFT routines:
+        Written by:    Tom Roberts                  11/8/89
+        Made portable: Malcolm Slaney               12/15/94
+        Enhanced:      Dimitrios P. Bouras          14 Jun 2006
+    The original attribution block is preserved in-file.
+
+  - `Main/Project/src/Pod/Misc/fxpt_atan2.c` (and its `.h`) is a
+    fixed-point atan2 implementation:
+        Copyright (C) 2012, Xo Wang — MIT License.
+    The original MIT notice is preserved in-file.
+
+  - The synth runtime in `Main/Project/src/Audio/synth.c` and its
+    header `synth.h`, together with the host-side `Tools/ModConverter/`
+    tooling, are derived from DuinoTune by Blake Livingston
+    (https://github.com/blakelivingston/DuinoTune), licensed under the
+    MIT License. The synth files were heavily modified for the Melbits
+    POD firmware (real-time scheduling, LED + vibration channels, GSM
+    PCM voice integration). The original MIT notice is reproduced in
+    each file; modifications are released under those same MIT terms.
+
+  - `Main/Project/src/Pod/Misc/crc16.c` and its header `crc16.h` are
+    redistributed from the Nordic nRF5 SDK under Nordic Semiconductor's
+    5-Clause License. The full Nordic license header is preserved
+    in-file.
+
+Refer to the headers of individual files for their applicable terms.
+
+No Warranty
+-----------
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL MELBOT STUDIOS, S.L. OR THE ORIGINAL AUTHOR BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF
+OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

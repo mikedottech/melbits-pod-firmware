@@ -1,0 +1,171 @@
+MODULES
+----------------------------------------------------
+
+LEDS
+----
+- Set brightness of each one
+- Simple animation cycles
+- Integer math
+	Dependencies
+	------------
+	- Softpwm
+	- Time
+	
+MLINK
+-----
+- Decode MLINK bytes
+- Trigger events when the signal is locked or a new PDU is available
+	Dependencies
+	------------
+	- SAADC
+	- Time
+
+SYNTH
+-----
+- Plays back feedback files (tracker mods) with sound, LEDs and vibration	
+	Dependencies
+	------------
+	- AUDIO
+	- SYNTH
+	- LEDS
+	- MOTOR
+
+FEEDBACK
+--------
+- Selects and plays a System feedback based on a priority system
+
+POWER
+-----
+- Manage power clients
+- Put MCU into idle mode and schedule next wakeup / don't idle
+- Set pins and hardware for sleep when in lowest mode
+- Restore hardware on wakeup
+- Manage battery charging
+- Measure battery voltage
+- Low power feedback
+- Lockup / reset when battery dead
+
+	Dependencies
+	------------
+	- app_timer (RTC)
+	- IO
+	- Accelerometer
+	- SAADC / ANALOG
+
+BLE
+---
+- Turns on/off advertising
+- Sets/updates advertising data
+- Notifies of connection established/closed/lost
+- Closes connection
+
+PG
+--
+- Protocol implementation
+- IO fifo for secure channel (Protocol/File)
+- Send events/stream
+- Receive, decode and call callbacks
+- Implements cryptography
+
+INCUBATION
+----------
+- Collect samples
+- Emit feedbacks
+
+MOTION
+------
+- Recognize basic actions (shake/tap/dbltap)
+- Generate events
+
+	Dependencies
+	------------
+	- Accelerometer
+	- Time
+
+STREAM
+------
+- Takes samples at a regular interval and assembles / sends a streaming packet
+
+LOGIC
+-----
+- FSM that interprets the gameplay logic
+- Glue that holds every other system together
+- Seed picking radar mode
+
+
+ANALOG
+------
+- Manages sampling of the analog sensors asynchronously
+- Global shared buffer
+- HAL Callback (ptr + size)
+
+STORAGE
+-------
+- Write files to flash
+- Read files from flash
+- Delete files from flash
+
+TEST MODE
+---------
+- Test patterns for factory
+
+BOX MODE
+--------
+- Box mode for factory
+
+HAL
+-----------------------------------------------------
+- LEDs
+	- SetLevels() // A level < 10 will disable the channel, All channels disabled (included motor) will disable the softpwm module
+	
+- MOTOR
+	-----
+	- SetVibration(level, time) // A level < 10 will disable the channel
+	
+	- Set vibration level
+	- Automatic timeout
+		Dependencies
+		------------
+		- Softpwm
+		- Time
+		
+- SAADC
+	- SetSamplingRate()
+	- SetEnabledChannels() // Stop if no channels enabled
+		-> Callback with samples from all analog channels
+	
+- AVDD
+	- Automatically controlled by the MLINK, LIGHT and TEMP analog channels
+
+- SYSTEM
+	- GetTickCount()
+	- SoftReset()
+	
+- ACCEL
+	- SetConfig()					// Enabled / rate / scale
+	- SetMotionDetectionConfig()	// Axes, threshold, duration 
+	- SetClickDetectionConfig()		// Axes, threshold, timing
+	- SetDataReporting()			// on/off
+	- ApplyConfig()
+	
+- AUDIO
+	-------
+	- Turn On/Off the PA
+	- Play samples stored in buffer
+	- Fill buffers with new synth data
+
+
+SHARED RESOURCES
+----------------------------------------------------
+- Accelerometer
+	- Motion
+	- Stream
+	
+- SAADC
+	- MLINK
+	- Sensors
+
+- AVDD
+	- MLINK
+	- Sensors
+	

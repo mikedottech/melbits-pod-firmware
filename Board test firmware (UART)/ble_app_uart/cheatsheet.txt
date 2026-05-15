@@ -1,0 +1,27 @@
+avdd [1|0]
+ -> OK
+led [r|g|b|n|s|e|w] [1|0]
+ -> OK
+temp
+ -> (analog reading)
+light
+ -> (analog reading)
+motor [1|0]
+ -> OK
+spk [1|0]
+ -> OK
+tone [1|0]
+ -> OK
+batt
+ -> 3.42 V
+acc
+ -> Requesting chip ID ...
+ -> [Success!|Failed]
+usb
+ -> USB is [CONNECTED|DISCONNECTED]
+mlink
+ -> MLINK = [1|0]
+
+>> EVENT: USB [1|0]
+>> EVENT: MLINK [1|0]
+>> EVENT: ACCELEROMETER INTERRUPT [1|2]

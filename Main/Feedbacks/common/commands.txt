@@ -1,0 +1,97 @@
+TOOLBAR
+	- LOAD/SAVE
+	- PLAY/STOP
+	- REC/NOT REC
+	- ADD CHANNEL
+	- REMOVE CHANNEL
+	- CONNECT TO POD
+	- (CONNECTION STATUS)
+
+PATTERN MATRIX
+	- ADD/REMOVE ROW
+	- CLICK INDIVIDUAL ENTRIES -> INCREMENT/DECREMENT PATTERN INDEX
+
+INSTRUMENTS LIST
+	- ADD INSTRUMENT
+	- REMOVE INSTRUMENT
+	- DBLCLICK -> INSTRUMENT EDITOR DIALOG
+	
+INSTRUMENT EDITOR DIALOG
+	- WAVE TYPE (TRIANGLE / SQUARE / NOISE / PCM / LED / VIBRATION)
+	- ENVELOPE EDITOR
+		- ADD POINT / REMOVE POINT
+
+PATTERN EDITOR	
+	- ARROW KEYS
+		- UP/DOWN -> MOVE SELECTION ROW
+		- LEFT/RIGHT -> MOVE CELL FOCUS
+	- CELL
+		- CLICK: HIGHLIGHT CELL TEXT
+		- KEY PRESS: VALIDATION AND FORMATTING
+		- ENTER: VALIDATE AND FOCUS CELL IN THE BOTTOM
+
+
+LED
+===
+(Set command data)
+- SET SOURCE LEVEL
+	INSTR  PAN	FX
+	xx 		M0 	00 ll	-> PWM LEVEL
+				80 ll	-> |0x80 -> ll is user slot
+	[vvvvCCCC][llllllll]
+
+- SET TARGET LEVEL
+	INSTR  PAN	FX
+	xx 		M0 	01 ll	-> PWM LEVEL
+				81 ll	-> |0x80 -> ll is user slot
+	[vvvvCCCC][llllllll]
+	
+(Direct command)
+(*)- SET LEVEL (ABS)
+	INSTR  PAN	FX
+	xx 		M0 	02 ll	-> SET PWM LEVEL
+				82 ll	-> |0x80 -> ll is user slot
+	[vvvvCCCC][llllllll]
+	
+(Animations)
+- BLINK (SRC, TRG, TIMES, SPEED)
+	INSTR  PAN	FX
+	xx 		M0 	03 ts
+	[vvvvCCCC][ttttssss]
+	
+- FADETO (SRC, TRG, SPEED)
+	INSTR  PAN	FX
+	xx 		M0 	04 0s
+	[vvvvCCCC][0000ssss]
+
+(*)- FADEIN (ABS) [0 TO LEVEL]
+	INSTR  PAN	FX
+	xx 		M0 	05 ll	-> SET PWM LEVEL
+				85 ll	-> |0x80 -> ll is user slot
+	[vvvvCCCC][llllllll]
+
+- FADEOUT (ABS) [LEVEL TO BLACK]
+	INSTR  PAN	FX
+	xx 		M0 	06
+	[vvvvCCCC]
+
+(*)- FADETO (ABS)
+	INSTR  PAN	FX
+	xx 		M0 	07 ll
+	xx 		M0 	87 ll
+	[vvvvCCCC][llllllll]
+
+VIBRATION
+=========
+- SET LEVEL
+	INSTR  PAN	FX
+	xx 		M0 	02 ll	-> SET PWM LEVEL
+				82 ll	-> |0x80 -> ll is user slot
+	[vvvvCCCC][llllllll]
+	
+PCM
+===
+(*)- PLAY PCM (USER SLOT)
+	INSTR  PAN	FX
+	xx 		M0 	00 ii	-> User slot id
+	[vvvvCCCC][iiiiiiii]
