@@ -67,6 +67,10 @@ fixed-point synth, an on-device game engine, encrypted application
 protocol, file system, manufacturing test mode, and asset playback —
 shaped almost every architectural decision in this codebase.
 
+Additionally, because of the lack of an FPU, and the ABI taking between
+1 and 2 KB of precious ROM, everything was coded in fixed point
+arithmetic.
+
 ---
 
 ## What's in this repository
