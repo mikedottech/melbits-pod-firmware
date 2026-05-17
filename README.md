@@ -326,13 +326,26 @@ first place.
 
 ### Toolchain and platform
 
-- **Migrate to Zephyr RTOS / nRF Connect SDK if memory constraints allow.** Nordic deprecated the
-  nRF5 SDK + SoftDevice combo that this project uses. Zephyr brings a
+- **Migrate to Zephyr RTOS / nRF Connect SDK** While the severe memory
+  constraints of the nRF52810 (both Flash, and RAM) rendered every
+  possible RTOS-based implementation unfeasible for this project,
+  Nordic deprecated the nRF5 SDK + SoftDevice combo that this
+  project uses. Zephyr brings a
   preemptive RTOS, a device tree, upstream-maintained drivers, a
   proper Bluetooth Host stack, MCUboot for signed updates, and a
   west-based workspace model that makes dependency management
   tractable. The Application / HAL / Drivers separation in this code
   maps cleanly onto Zephyr's `lib` / `drivers` / `subsys` model.
+  However, despite being deprecated, many engineers still use
+  the nRF5 SDK + SoftDevice for very small devices like this one
+  where ultra-low overhead firmware is required, and every cent
+  counts (as it's usually the case in early startup settings).
+  So what I said above would only be possible with a more capable
+  and more expensive part, which was also out of the question for
+  cost reasons. All things considered, the approach I took still
+  looks like the only feasible solution, trading more work and
+  complexity for reduced production costs.
+  
 - **Replace SEGGER Embedded Studio + JLink scripts with CMake +
   `arm-none-eabi-gcc` + VS Code + `cortex-debug`.** Reproducible
   builds, free toolchain, no vendor lock-in, runs in CI.
@@ -359,6 +372,12 @@ first place.
   enforces a **flash and RAM budget per PR** (the device has 92 KB of
   app flash; any PR that pushes it past a budget fails the check),
   and publishes signed artefacts on tag.
+- While the device was thorougly tested before release by a team of
+  people, and I produced a test-case matrix document for them to follow.
+  It is also true that very tight time constraints made time-to-market
+  matter more than formal testing.
+  That's why I made sure the FOTA path would be smooth in case I
+  needed to iron out any wrinkles in production.
 
 ### Security
 
