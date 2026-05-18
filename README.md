@@ -453,10 +453,6 @@ authorization:
   with a **C# / .NET** binding layer; implements the Playground
   protocol, Magic Link orchestration, DFU client, and the file-server
   client.
-- **`melbits-pod-factory-app`** — Desktop application used by the
-  contract manufacturer to provision and test PODs during assembly
-  (serial number assignment, factory image flashing, end-of-line test
-  orchestration, calibration data write-out to UICR).
 
 ---
 
