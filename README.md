@@ -23,9 +23,8 @@ that work.
 > **Publication notice.** This source is published as a portfolio
 > archive with the express written authorization of Melbot Studios, S.L.
 > All rights remain with Melbot Studios — see [`LICENSE`](LICENSE) for the
-> full terms. Vendor SDKs, signing keys, and proprietary audio assets were
-> removed before publication; see [`SETUP.md`](SETUP.md) for the restore
-> path.
+> full terms. Vendor SDKs, signing keys, and proprietary audio assets
+> were removed before publication.
 
 ---
 
@@ -497,12 +496,12 @@ them and everything else, reporting directly to the CEO.
 
 ---
 
-## Building
+## A note on running this code
 
 This is a **portfolio archive**, not a turn-key buildable tree. Vendor
-SDKs, signing keys, and proprietary audio assets were removed before
-publication. See [`SETUP.md`](SETUP.md) for the reference steps to
-reconstruct a buildable environment.
+SDKs, signing keys, proprietary audio assets, and the GPL-licensed GSM
+decoder were intentionally removed before publication. The code is
+published to be **read and reviewed**, not compiled.
 
 ---
 
