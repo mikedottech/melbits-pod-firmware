@@ -441,7 +441,7 @@ bars, and a portfolio that pretends otherwise is not useful to anyone.
 
 ---
 
-## Companion repositories *(to be published)*
+## Companion repositories
 
 The firmware is one piece of a larger system. The remaining components
 will be published as separate portfolio repositories under the same
