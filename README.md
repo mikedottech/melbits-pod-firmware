@@ -522,4 +522,4 @@ for full terms and the list of third-party components.
 ## Author
 
 **Miguel Angel Exposito** — Tech Lead, Senior Software Engineer | C++ · Real-Time Systems · Cross-Platform · Embedded Software · 3D · Linux.
-Find me on [LinkedIn](https://www.linkedin.com/in/miguel-angel-exposito) · [GitHub](https://www.github.com/mikedottech).
+Find me on [LinkedIn](https://www.linkedin.com/in/miguel-angel-exposito) · [GitHub](https://www.github.com/mikedottech) · [Blog](https://pixelclock.blog/about/)
