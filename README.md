@@ -125,6 +125,10 @@ configuration, intrinsically directional (only the device that sees
 the pattern pairs, so a sibling's POD across the room can't intercept),
 and physically intuitive for the target age range.
 
+<video src="https://github.com/user-attachments/assets/f7434d27-0d97-4f53-bffb-0617a292a9c6" width="400" height="300"> </video>
+
+---
+
 Implementation lives in:
 
 - [`Main/Project/src/Pod/MLINK.c`](Main/Project/src/Pod/MLINK.c) — Magic Link receiver state machine
