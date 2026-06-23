@@ -26,6 +26,10 @@ that work.
 > full terms. Vendor SDKs, signing keys, and proprietary audio assets
 > were removed before publication.
 
+> **Publication notice.** This source is not the final production version.
+> It might contain certain bugs or inaccuracies that were addressed in the
+> final varsion, but it should be feature-complete.
+
 ---
 
 ## What the product does
